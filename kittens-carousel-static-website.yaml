@@ -1,6 +1,10 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >
-  This Cloudformation Template was written for running Kittens Carousel Static Website on EC2. Kittens Carousel Static Website will be deployed on Amazon EC2 2 (XXXXXXXXXXXXXXXXXXX) EC2 instance with custom security Group which allows http connection on port 80 and SSH port 22 from anywhere. Kittens carousel Static Website is downloaded from my Public Github repository, then deployed on Apache Web server
+  This Cloudformation Template was written for running Kittens Carousel Static Website on EC2. 
+  Kittens Carousel Static Website will be deployed on Amazon EC2 2 (XXXXXXXXXXXXXXXXXXX) 
+  EC2 instance with custom security Group which allows http connection on port 80 and 
+  SSH port 22 from anywhere. Kittens carousel Static Website is downloaded from my 
+  Public Github repository, then deployed on Apache Web server
 
 Resources:
   WebServerSecurityGroup:
@@ -19,9 +23,9 @@ Resources:
   WebServerHost:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-0ab4d1e9cf9a1215a
+      ImageId: ami-0c2b8ca1dad447f8a
       InstanceType: t2.micro
-      KeyName: serdar
+      KeyName: ec2_key2 #here is ec2 key.pem file name
       SecurityGroupIds:
         - !Ref WebServerSecurityGroup
       Tags:
@@ -33,7 +37,7 @@ Resources:
             #! /bin/bash
             yum update -y
             yum install httpd -y
-            FOLDER="https://raw.githubusercontent.com/serdarcw/my-repository/master/Project-101-kittens-carousel-static-website-ec2/static-web"
+            FOLDER="https://raw.githubusercontent.com/yasemingonen/Project-1-kittens-carousel-static-website-ec2/main/static-web/"
             cd /var/www/html
             wget $FOLDER/index.html
             wget $FOLDER/cat0.jpg
@@ -41,8 +45,7 @@ Resources:
             wget $FOLDER/cat2.jpg
             wget $FOLDER/cat3.png
             systemctl start httpd
-            systemctl enable httpd
-      
+            systemctl enable httpd      
 Outputs:
   WebsiteURL:
     Value: !Sub 

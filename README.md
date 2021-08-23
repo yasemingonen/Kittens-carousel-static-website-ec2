@@ -47,7 +47,7 @@ Kittens Carousel is a static website application deployed with Apache Web Server
 
 ## Expected Outcome
 
-![Project 101 : Kittens Carousel Application Snapshot](./project-101-snapshot.png)
+
 
 ### At the end of the project, following topics are to be covered;
 
@@ -99,4 +99,4 @@ Kittens Carousel is a static website application deployed with Apache Web Server
 
 ## Resources
 
-- [AWS Cloudformation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+- [AWS Cloudformation User Guide]
